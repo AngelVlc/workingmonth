@@ -6,6 +6,9 @@ import (
 	"time"
 )
 
+// WorkingHoursPerDay is the number of working hours per day
+const WorkingHoursPerDay int = 8
+
 // WorkingMonth contains methods to get the working hours
 // in a given month
 type WorkingMonth struct {
@@ -40,13 +43,13 @@ func (m WorkingMonth) WorkingDaysUntilToday() int {
 
 // WorkingHours returns the number of working hours in the month
 func (m WorkingMonth) WorkingHours() int {
-	return m.WorkingDays() * 8
+	return m.WorkingDays() * WorkingHoursPerDay
 }
 
 // WorkingHoursUntilToday returns the number of working hours at the
 // end of today
 func (m WorkingMonth) WorkingHoursUntilToday() int {
-	return m.WorkingDaysUntilToday() * 8
+	return m.WorkingDaysUntilToday() * WorkingHoursPerDay
 }
 
 func (m WorkingMonth) workingDaysUntilDay(day int) int {
